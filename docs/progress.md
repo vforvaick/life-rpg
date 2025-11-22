@@ -9,14 +9,19 @@
 ## Progress Tracking
 
 ### Phase 0: Foundation (Weeks 1-3)
-**Status:** Not Started
+**Status:** In Progress 🚧
 **Goal:** Setup infrastructure, tooling, and team workflows
 
-- [ ] Week 1: Project setup & repository structure
-- [ ] Week 2: Authentication & tooling
-- [ ] Week 3: Data seeding & API foundation
+- [x] Task 1: Initialize Next.js 14 project (DONE)
+- [x] Task 2: Setup Supabase configuration (DONE)
+- [x] Task 3: Initialize Prisma with schema (DONE)
+- [x] Task 4: Install shadcn/ui components (DONE)
+- [x] Task 5: Create landing page (DONE)
+- [ ] Task 6: Setup Supabase authentication
+- [ ] Task 7: Setup CI/CD (GitHub Actions + Vercel)
+- [ ] Task 8: Seed initial data
 
-**Completion:** 0/3 weeks
+**Completion:** 5/8 tasks (63%)
 
 ---
 
@@ -80,7 +85,13 @@
 
 ## Milestones Achieved
 
-*No milestones achieved yet*
+### 2025-11-22
+- ✅ **Phase 0 Started** - Foundation setup in progress
+- ✅ **Next.js 14 initialized** - Project structure created with TypeScript & Tailwind
+- ✅ **Supabase configured** - Client setup with .env template
+- ✅ **Prisma setup complete** - Database schema with 5 models (User, Assessment, Skill, UserSkill, Occupation)
+- ✅ **Landing page deployed** - SkillTree homepage with hero & features
+- ✅ **Development environment ready** - All core dependencies installed
 
 ---
 
@@ -110,9 +121,11 @@
 ### This Week (Week 0 - Pre-Launch)
 1. [x] Finalize PRD and roadmap (DONE)
 2. [x] Create implementation plans (DONE - 4 plans created)
-3. [ ] Setup landing page
-4. [ ] Create GitHub repo (make public)
-5. [ ] Write Week 1 announcement thread
+3. [x] Setup landing page (DONE - SkillTree homepage created)
+4. [x] Initialize Next.js project (DONE)
+5. [x] Setup Prisma & Supabase (DONE)
+6. [ ] Complete Phase 0 remaining tasks (auth, CI/CD, seeding)
+7. [ ] Write Week 1 announcement thread
 
 ### Week 1 (Foundation Start)
 1. [ ] Push announcement (Twitter + LinkedIn)
