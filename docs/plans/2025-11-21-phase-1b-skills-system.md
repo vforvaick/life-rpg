@@ -599,8 +599,6 @@ export async function GET(request: Request) {
 }
 ```
 
-2. Create user skills API
-```typescript
 // app/api/user-skills/route.ts
 import { NextResponse } from 'next/server'
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
@@ -609,7 +607,8 @@ import { prisma } from '@/lib/prisma'
 
 export async function GET(request: Request) {
   try {
-    const supabase = createRouteHandlerClient({ cookies })
+    const cookieStore = await cookies()
+    const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
     const {
       data: { session },
     } = await supabase.auth.getSession()
