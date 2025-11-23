@@ -6,7 +6,7 @@ A career navigation platform that helps you identify your skills through RIASEC 
 
 ## 🚀 Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
 - **Database:** PostgreSQL via Supabase
