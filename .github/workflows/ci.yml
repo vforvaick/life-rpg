@@ -24,7 +24,9 @@ jobs:
         run: npm ci
 
       - name: Generate Prisma Client
-        run: npx prisma generate
+        run: |
+          touch ./dev.db
+          DATABASE_URL="file:./dev.db" npx prisma generate
 
       - name: Lint code
         run: npm run lint
@@ -34,8 +36,11 @@ jobs:
 
       - name: Run tests
         run: npm test
+        env:
+          DATABASE_URL: "file:./dev.db"
 
       - name: Build application
         run: npm run build
         env:
+          DATABASE_URL: "file:./dev.db"
           SKIP_ENV_VALIDATION: true
