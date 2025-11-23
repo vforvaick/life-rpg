@@ -1,14 +1,25 @@
 'use client'
 
-import { useState } from 'react'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { useState, useMemo } from 'react'
+import { createBrowserClient } from '@supabase/ssr'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
-  const supabase = createClientComponentClient()
+  const searchParams = useSearchParams()
+  const error = searchParams.get('error')
+
+  const supabase = useMemo(
+    () =>
+      createBrowserClient(
+        process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+      ),
+    []
+  )
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -24,12 +35,14 @@ export default function LoginPage() {
       })
 
       if (error) {
+        console.error('Login error:', error)
         setMessage(error.message)
       } else {
         setMessage('Check your email for the login link!')
       }
     } catch (error) {
-      setMessage('An error occurred. Please try again.')
+      console.error('Login error:', error)
+      setMessage(error instanceof Error ? error.message : 'An error occurred. Please try again.')
     } finally {
       setLoading(false)
     }
@@ -47,6 +60,12 @@ export default function LoginPage() {
               We'll send you a magic link to sign in
             </p>
           </div>
+
+          {error === 'auth_failed' && (
+            <div className="mb-4 p-4 rounded-lg bg-red-50 text-red-800 border border-red-200">
+              Authentication failed. Please try again.
+            </div>
+          )}
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>

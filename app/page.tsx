@@ -13,7 +13,7 @@ export default function HomePage() {
             Discover Your Skills. Find Your Career Path.
           </p>
           <Link
-            href="/assessment"
+            href="/login"
             className="inline-block px-8 py-4 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
           >
             Get Started Free
